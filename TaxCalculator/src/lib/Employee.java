@@ -1,6 +1,5 @@
 package lib;
 
-import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,7 +11,6 @@ public class Employee {
     private boolean isForeigner;
     private Gender gender;
 
-    private int monthWorkingInYear;
     private int monthlySalary;
     private int otherMonthlyIncome;
     private int annualDeductible;
@@ -75,26 +73,33 @@ public class Employee {
         childIdNumbers.add(childIdNumber);
     }
 
+    // ✅ Refactored method
     public int getAnnualIncomeTax() {
-        LocalDate now = LocalDate.now();
-        if (now.getYear() == joiningDate.getDateJoined().getYear()) {
-            monthWorkingInYear = now.getMonthValue() - joiningDate.getDateJoined().getMonthValue();
-        } else {
-            monthWorkingInYear = 12;
-        }
-
-        return TaxFunction.calculateTax(
-                monthlySalary,
-                otherMonthlyIncome,
-                monthWorkingInYear,
-                annualDeductible,
-                spouseIdNumber != null && !spouseIdNumber.isEmpty(),
-                childIdNumbers.size()
-        );
+        return TaxFunction.calculateTaxForEmployee(this);
     }
 
-    // Getter tambahan jika perlu mengakses informasi pribadi
-    public PersonalData getPersonalData() {
-        return personalData;
+    // Getter untuk digunakan oleh TaxFunction
+    public int getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    public int getOtherMonthlyIncome() {
+        return otherMonthlyIncome;
+    }
+
+    public int getAnnualDeductible() {
+        return annualDeductible;
+    }
+
+    public boolean hasSpouse() {
+        return spouseIdNumber != null && !spouseIdNumber.isEmpty();
+    }
+
+    public int getChildCount() {
+        return childIdNumbers.size();
+    }
+
+    public JoiningDate getJoiningDate() {
+        return joiningDate;
     }
 }
