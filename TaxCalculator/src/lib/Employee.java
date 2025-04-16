@@ -137,4 +137,5 @@ public class Employee {
     public int getAnnualIncomeTax() {
         return taxCalculatorService.calculateAnnualIncomeTax(this);
     }
+    //refactor//
 }
