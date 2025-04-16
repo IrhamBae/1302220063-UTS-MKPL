@@ -92,8 +92,6 @@ public class Employee {
                 childIdNumbers.size()
         );
     }
-
-    // Getter tambahan jika perlu mengakses informasi pribadi
     public PersonalData getPersonalData() {
         return personalData;
     }
