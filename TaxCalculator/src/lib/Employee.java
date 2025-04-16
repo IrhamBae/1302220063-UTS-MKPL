@@ -21,12 +21,15 @@ public class Employee {
     private List<String> childNames;
     private List<String> childIdNumbers;
 
-    public Employee(String employeeId, PersonalData personalData, JoiningDate joiningDate, boolean isForeigner, Gender gender) {
+    private TaxCalculatorService taxCalculatorService;
+
+    public Employee(String employeeId, PersonalData personalData, JoiningDate joiningDate, boolean isForeigner, Gender gender, TaxCalculatorService taxCalculatorService) {
         this.employeeId = employeeId;
         this.personalData = personalData;
         this.joiningDate = joiningDate;
         this.isForeigner = isForeigner;
         this.gender = gender;
+        this.taxCalculatorService = taxCalculatorService;
 
         this.childNames = new LinkedList<>();
         this.childIdNumbers = new LinkedList<>();
@@ -73,12 +76,10 @@ public class Employee {
         childIdNumbers.add(childIdNumber);
     }
 
-    // ✅ Refactored method
     public int getAnnualIncomeTax() {
-        return TaxFunction.calculateTaxForEmployee(this);
+        return taxCalculatorService.calculateAnnualIncomeTax(this);
     }
 
-    // Getter untuk digunakan oleh TaxFunction
     public int getMonthlySalary() {
         return monthlySalary;
     }
