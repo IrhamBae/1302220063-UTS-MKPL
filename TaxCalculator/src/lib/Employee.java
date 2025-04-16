@@ -93,21 +93,4 @@ public class Employee {
                 childIdNumbers.size()
         );
     }
-
-    // Optional: Getter untuk testing atau akses luar
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public PersonalData getPersonalData() {
-        return personalData;
-    }
-
-    public JoiningDate getJoiningDate() {
-        return joiningDate;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
 }
