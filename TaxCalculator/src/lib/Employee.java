@@ -36,7 +36,6 @@ public class Employee {
         this.childIdNumbers = new LinkedList<>();
     }
 
-    // Getter and Setter methods
     public String getEmployeeId() {
         return employeeId;
     }
@@ -150,6 +149,9 @@ public class Employee {
                 spouseIdNumber != null && !spouseIdNumber.isEmpty(),
                 childIdNumbers.size()
         );
+    }
+    public String getEmployeeId() {
+        return employeeId;
     }
     public PersonalData getPersonalData() {
         return personalData;
