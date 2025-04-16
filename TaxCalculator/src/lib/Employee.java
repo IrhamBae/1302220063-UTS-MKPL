@@ -135,6 +135,24 @@ public class Employee {
     }
 
     public int getAnnualIncomeTax() {
+        LocalDate now = LocalDate.now();
+        if (now.getYear() == joiningDate.getDateJoined().getYear()) {
+            monthWorkingInYear = now.getMonthValue() - joiningDate.getDateJoined().getMonthValue();
+        } else {
+            monthWorkingInYear = 12;
+        }
+
+        return TaxFunction.calculateTax(
+                monthlySalary,
+                otherMonthlyIncome,
+                monthWorkingInYear,
+                annualDeductible,
+                spouseIdNumber != null && !spouseIdNumber.isEmpty(),
+                childIdNumbers.size()
+        );
+    }
+    public PersonalData getPersonalData() {
+        return personalData;
         return taxCalculatorService.calculateAnnualIncomeTax(this);
     }
     //refactor//
