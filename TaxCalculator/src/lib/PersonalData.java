@@ -13,10 +13,19 @@ public class PersonalData {
         this.address = address;
     }
 
-    // Getters
-    public String getFirstName() { return firstName; }
-    public String getLastName() { return lastName; }
-    public String getIdNumber() { return idNumber; }
-    public String getAddress() { return address; }
-}
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+}

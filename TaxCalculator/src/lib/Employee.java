@@ -13,7 +13,6 @@ public class Employee {
     private Gender gender;
 
     private int monthWorkingInYear;
-
     private int monthlySalary;
     private int otherMonthlyIncome;
     private int annualDeductible;
@@ -92,5 +91,10 @@ public class Employee {
                 spouseIdNumber != null && !spouseIdNumber.isEmpty(),
                 childIdNumbers.size()
         );
+    }
+
+    // Getter tambahan jika perlu mengakses informasi pribadi
+    public PersonalData getPersonalData() {
+        return personalData;
     }
 }
