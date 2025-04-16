@@ -94,7 +94,6 @@ public class Employee {
         );
     }
 
-    // Optional: Getter untuk testing atau akses luar
     public String getEmployeeId() {
         return employeeId;
     }
